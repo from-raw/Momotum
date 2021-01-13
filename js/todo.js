@@ -7,7 +7,22 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 
 const TODOS_LOCALSTORAGE = "toDos";
 
-const toDos = [];
+let toDos = [];
+// let idNumbers = 1;
+
+function deleteToDo(event) {
+  const btn = event.target;
+  const li = btn.parentNode;
+  toDoList.removeChild(li);
+
+  const cleanToDos = toDos.filter(function(toDo) {
+    console.log();
+    return toDo.id !== parseInt(li.id);
+  });
+
+  toDos = cleanToDos;
+  saveToDos();
+}
 
 function saveToDos() {
   localStorage.setItem(TODOS_LOCALSTORAGE, JSON.stringify(toDos));
@@ -16,9 +31,12 @@ function saveToDos() {
 function paintToDo(text) {
   const li = document.createElement("li");
   const delBtn = document.createElement("button");
+  
   delBtn.innerText = "❌"; // window키 + .(마침표)
+  delBtn.addEventListener("click", deleteToDo);
+
   const span = document.createElement("span");
-  const newId = toDos.length + 1;
+  const newId = toDos.length + 1; // 오류 생김
   span.innerText = text;
   li.appendChild(span); // appendChild: 부모 요소(선택자)에게 자식 요소의 최종 결과물을 넣어주는 역할
   li.appendChild(delBtn);
@@ -29,6 +47,7 @@ function paintToDo(text) {
     text: text,
     id: newId
   }
+
   toDos.push(toDoObj);
   saveToDos();
 }
