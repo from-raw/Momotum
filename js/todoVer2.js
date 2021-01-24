@@ -1,5 +1,3 @@
-"use strict";
-
 const toDoForm = document.querySelector(".toDoForm"),
   toDoInput = toDoForm.querySelector("input"),
   pendingList = document.querySelector(".pendingList"),
@@ -87,16 +85,16 @@ function paintPending(text) {
   const finishedBtn = document.createElement("button");
   const span = document.createElement("span");
 
-  deleteBtn.innerText = "❌";
-  finishedBtn.innerText = "✔";
+  deleteBtn.innerText = "X";
+  finishedBtn.innerText = "V";
 
   deleteBtn.addEventListener("click", deleteToDo);
   finishedBtn.addEventListener("click", finishedToDo);
   span.innerText = text;
 
   li.appendChild(span);
-  li.appendChild(deleteBtn);
   li.appendChild(finishedBtn);
+  li.appendChild(deleteBtn);
   const newId = pendingToDos.length + 1;
   li.id = newId;
   pendingList.appendChild(li);
@@ -114,15 +112,15 @@ function paintFinished(text) {
   const deleteBtn = document.createElement("button");
   const pendingBtn = document.createElement("button");
   const span = document.createElement("span");
-  deleteBtn.innerText = "❌";
-  pendingBtn.innerText = "⏪";
+  deleteBtn.innerText = "X";
+  pendingBtn.innerText = "<";
   deleteBtn.addEventListener("click", deleteToDo);
   pendingBtn.addEventListener("click", pendingToDo);
   span.innerText = text;
 
   li.appendChild(span);
-  li.appendChild(deleteBtn);
   li.appendChild(pendingBtn);
+  li.appendChild(deleteBtn);
   const newId = finishedToDos.length + 1;
   li.id = newId;
   finishedList.appendChild(li);

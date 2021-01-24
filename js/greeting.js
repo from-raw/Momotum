@@ -5,6 +5,13 @@ const form = document.querySelector(".js-form"),
   input = form.querySelector("input"),
   greeting = document.querySelector(".js-greetings");
 
+const classClock = document.querySelector(".js-clock"),
+  classWeather = document.querySelector(".js-weather"),
+  classToDoForm = document.querySelector(".toDoForm"),
+  classPendingWrap = document.querySelector(".pending-wrap"),
+  classFinishedWrap = document.querySelector(".finished-wrap");
+
+
 // null: doesn't exist (like undefined, cannot find)
 // localStorge 이용하기
 const CURRENT_LOCALSTORAGE = "currentUserName",
@@ -30,6 +37,13 @@ function paintingGreeting(text) {
   form.classList.remove(CLASSNAME_SHOWING);
   greeting.classList.add(CLASSNAME_SHOWING);
   greeting.innerText = `Hello, ${text}`;
+
+  // add class other element
+  classClock.classList.add(CLASSNAME_SHOWING);
+  classWeather.classList.add(CLASSNAME_SHOWING);
+  classToDoForm.classList.add(CLASSNAME_SHOWING);
+  classPendingWrap.classList.add(CLASSNAME_SHOWING);
+  classFinishedWrap.classList.add(CLASSNAME_SHOWING);
 }
 
 function loadUserName() {

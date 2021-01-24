@@ -15,7 +15,7 @@ function getWeather(lat, lng) {
   }).then(function(json) {
     const temperature = json.main.temp;
     const place = json.name;
-    weather.innerText = `${temperature}°C @${place}`;
+    weather.innerHTML = `Today is ${temperature}°C <b>in ${place}</b>`;
   });
   // then(): 기본적으로 함수를 호출하는 역할을 하지만, 데이터가 완전히 들어온 다음에 호출한다. 작동하는 것이 끝나기를 기다리는 방법.
   
