@@ -1,3 +1,5 @@
+"use strict";
+
 const toDoForm = document.querySelector(".toDoForm"),
   toDoInput = toDoForm.querySelector("input"),
   pendingList = document.querySelector(".pendingList"),
