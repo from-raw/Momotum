@@ -16,7 +16,6 @@ function deleteToDo(event) {
   toDoList.removeChild(li);
 
   const cleanToDos = toDos.filter(function(toDo) {
-    console.log();
     return toDo.id !== parseInt(li.id);
   });
 
